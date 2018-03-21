@@ -22,6 +22,8 @@ import com.drew.lang.StringUtil;
 import com.mihisa.galleryapp.R;
 import com.mihisa.galleryapp.activities.activities.base.SharedMediaActivity;
 import com.mihisa.galleryapp.activities.util.PermissionUtils;
+import com.mihisa.galleryapp.activities.util.StringUtils;
+import com.mihisa.galleryapp.activities.views.LookForMediaJob;
 
 import org.horaapps.liz.ColorPalette;
 
@@ -71,7 +73,6 @@ public class SplashScreen extends SharedMediaActivity {
                         File dir = new File(ab);
                         start();
                     }
-                    //TODO StringUtils
                 } else StringUtils.showToast(getApplicationContext(), "Album not found");
             } else start();
         } else

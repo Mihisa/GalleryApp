@@ -24,7 +24,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!-- TODO change action and category -->
+                <!-- //TODO change action and category -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
