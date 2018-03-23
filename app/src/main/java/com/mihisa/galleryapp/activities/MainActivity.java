@@ -1,10 +1,10 @@
-package com.mihisa.galleryapp.activities.activities;
+package com.mihisa.galleryapp.activities;
 
 import android.os.Bundle;
 
 
 import com.mihisa.galleryapp.R;
-import com.mihisa.galleryapp.activities.activities.base.SharedMediaActivity;
+import com.mihisa.galleryapp.activities.base.SharedMediaActivity;
 
 public class MainActivity extends SharedMediaActivity {
 

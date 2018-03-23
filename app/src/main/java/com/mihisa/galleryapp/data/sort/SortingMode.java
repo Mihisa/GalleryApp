@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.data.sort;
+package com.mihisa.galleryapp.data.sort;
 
 import android.provider.MediaStore;
 

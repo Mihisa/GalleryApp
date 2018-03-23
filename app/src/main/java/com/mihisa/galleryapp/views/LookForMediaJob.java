@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.views;
+package com.mihisa.galleryapp.views;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
@@ -11,10 +11,9 @@ import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.drew.lang.StringUtil;
 import com.mihisa.galleryapp.R;
-import com.mihisa.galleryapp.activities.data.HandlingAlbums;
-import com.mihisa.galleryapp.activities.data.filter.ImageFileFilter;
+import com.mihisa.galleryapp.data.HandlingAlbums;
+import com.mihisa.galleryapp.data.filter.ImageFileFilter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,7 +40,6 @@ public class LookForMediaJob extends JobService{
             @Override
             public void run() {
                 try {
-                    //TODO HandlingAlbums
                     ArrayList<String> whiteList = HandlingAlbums.getInstance(getApplicationContext()).getFolders(HandlingAlbums.INCLUDED);
                     for(String s : whiteList) {
                         scanFolders(s);
@@ -78,7 +76,6 @@ public class LookForMediaJob extends JobService{
     }
 
     private void scanFolders(String path) {
-        //TODO ImageFileFilter
         String[] list = new File(path).list(new ImageFileFilter(true));
         if(list != null) {
             MediaScannerConnection.scanFile(getApplicationContext(), list, null, null);

@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.data.filter;
+package com.mihisa.galleryapp.data.filter;
 
 /**
  * Created by insight on 21.03.18.

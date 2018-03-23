@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.activities.base;
+package com.mihisa.galleryapp.activities.base;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,7 +8,8 @@ import android.os.Build;
 import android.widget.Toast;
 
 import com.mihisa.galleryapp.R;
-import com.mihisa.galleryapp.activities.util.AlertDialogHelper;
+import com.mihisa.galleryapp.data.StorageHelper;
+import com.mihisa.galleryapp.util.AlertDialogHelper;
 
 import org.horaapps.liz.ThemedActivity;
 
@@ -39,7 +40,6 @@ public class SharedMediaActivity extends ThemedActivity {
             if(requestCode == REQUEST_CODE_SD_CARD_PERMISSION) {
                 Uri treeUri = resultData.getData();
                 StorageHelper.saveSdCardInfo(getApplicationContext(), treeUri);
-                //TODO Storage Helper
                 getContentResolver().takePersistableUriPermission(treeUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 Toast.makeText(this, R.string.got_permission_wr_sdcard, Toast.LENGTH_SHORT).show();
             }

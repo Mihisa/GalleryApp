@@ -1,10 +1,11 @@
-package com.mihisa.galleryapp.activities.data;
+package com.mihisa.galleryapp.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.mihisa.galleryapp.activities.data.filter.FilterMode;
-import com.mihisa.galleryapp.activities.data.sort.SortingMode;
+import com.mihisa.galleryapp.data.filter.FilterMode;
+import com.mihisa.galleryapp.data.sort.SortingMode;
+import com.mihisa.galleryapp.data.sort.SortingOrder;
 
 import java.io.Serializable;
 

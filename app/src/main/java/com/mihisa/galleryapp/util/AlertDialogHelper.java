@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.util;
+package com.mihisa.galleryapp.util;
 
 import android.app.AlertDialog;
 import android.support.annotation.StringRes;

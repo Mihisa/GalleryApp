@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.data;
+package com.mihisa.galleryapp.data;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,10 +7,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 
-import com.mihisa.galleryapp.activities.data.filter.FilterMode;
-import com.mihisa.galleryapp.activities.data.sort.SortingMode;
-import com.mihisa.galleryapp.activities.data.sort.SortingOrder;
-import com.mihisa.galleryapp.activities.util.StringUtils;
+import com.mihisa.galleryapp.data.filter.FilterMode;
+import com.mihisa.galleryapp.data.sort.SortingMode;
+import com.mihisa.galleryapp.data.sort.SortingOrder;
+import com.mihisa.galleryapp.util.StringUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -59,7 +59,6 @@ public class Album implements CursorHandler, Parcelable {
                 cur.getInt(2),
                 cur.getLong(4));
 
-        //TODO Media
         setLastMedia(new Media(cur.getString(3)));
     }
 

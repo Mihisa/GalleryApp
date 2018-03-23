@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.activities;
+package com.mihisa.galleryapp.activities;
 
 import android.Manifest;
 import android.app.job.JobInfo;
@@ -18,12 +18,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.drew.lang.StringUtil;
 import com.mihisa.galleryapp.R;
-import com.mihisa.galleryapp.activities.activities.base.SharedMediaActivity;
-import com.mihisa.galleryapp.activities.util.PermissionUtils;
-import com.mihisa.galleryapp.activities.util.StringUtils;
-import com.mihisa.galleryapp.activities.views.LookForMediaJob;
+import com.mihisa.galleryapp.activities.base.SharedMediaActivity;
+import com.mihisa.galleryapp.util.PermissionUtils;
+import com.mihisa.galleryapp.util.StringUtils;
+import com.mihisa.galleryapp.views.LookForMediaJob;
 
 import org.horaapps.liz.ColorPalette;
 

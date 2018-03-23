@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.activities.data;
+package com.mihisa.galleryapp.data;
 
 import android.database.Cursor;
 
