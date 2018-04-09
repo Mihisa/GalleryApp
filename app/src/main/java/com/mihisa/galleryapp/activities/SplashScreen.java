@@ -22,7 +22,7 @@ import com.mihisa.galleryapp.R;
 import com.mihisa.galleryapp.activities.base.SharedMediaActivity;
 import com.mihisa.galleryapp.util.PermissionUtils;
 import com.mihisa.galleryapp.util.StringUtils;
-import com.mihisa.galleryapp.views.LookForMediaJob;
+import com.mihisa.galleryapp.LookForMediaJob;
 
 import org.horaapps.liz.ColorPalette;
 

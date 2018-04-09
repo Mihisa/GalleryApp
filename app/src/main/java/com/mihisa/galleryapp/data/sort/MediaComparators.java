@@ -10,7 +10,7 @@ import java.util.Comparator;
  * Created by insight on 23.03.18.
  */
 
-public class MediaComparator {
+public class MediaComparators {
 
     public static Comparator<Media> getComparator(AlbumSettings settings) {
         return getComparator(settings.getSortingMode(), settings.getSortingOrder());
@@ -52,7 +52,6 @@ public class MediaComparator {
     }
 
     private static Comparator<Media> getNumericComparator() {
-        //TODO NumericComparator
         return (f1, f2) -> NumericComparator.filevercmp(f1.getPath(), f2.getPath());
     }
 

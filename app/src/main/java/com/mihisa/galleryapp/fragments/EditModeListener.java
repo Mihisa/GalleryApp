@@ -9,5 +9,5 @@ import javax.annotation.Nullable;
  */
 
 public interface EditModeListener {
-    void changeEditMode(boolean editMode, int selected, int total, @Nullable View.OnClickListener listener, @Nullable String title);
+    void changedEditMode(boolean editMode, int selected, int total, @Nullable View.OnClickListener listener, @Nullable String title);
 }

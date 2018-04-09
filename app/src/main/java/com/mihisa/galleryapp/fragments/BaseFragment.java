@@ -9,7 +9,7 @@ import org.horaapps.liz.ThemedFragment;
  * Created by insight on 23.03.18.
  */
 
-public class BaseFragment extends ThemedFragment implements IFragment, Themed, ActionsListener {
+public abstract class BaseFragment extends ThemedFragment implements IFragment, Themed, ActionsListener {
 
     private EditModeListener editModeListener;
     private NothingToShowListener nothingToShowListener;
