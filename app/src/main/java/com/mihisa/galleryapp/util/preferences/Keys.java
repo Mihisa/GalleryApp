@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.util.preferenses;
+package com.mihisa.galleryapp.util.preferences;
 
 /**
  * Created by insight on 02.04.18.

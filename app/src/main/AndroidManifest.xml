@@ -10,17 +10,42 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.fingerprint"
+        android:required="false"/>
+
     <application
         android:allowBackup="true"
+        android:name=".App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/Theme.AppCompat">
 
+        <activity
+            android:name="com.mihisa.galleryapp.activities.PlayerActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/video_player"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="content" />
+                <data android:scheme="asset" />
+                <data android:scheme="file" />
+                <data android:mimeType="video/*" />
+
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activities.SplashScreen"
-            android:configChanges="orientation|screenSize|uiMode|screenLayout|navigation"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -50,7 +75,7 @@
 
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.mihisa.galleryapp.activities.MainActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -58,6 +83,136 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.mihisa.galleryapp.activities.SingleMediaActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize|uiMode|screenLayout|navigation"
+            android:parentActivityName="com.mihisa.galleryapp.activities.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mihisa.galleryapp.activities.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.albumPhoto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.android.camera.action.REVIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="video/*"/>
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name="com.mihisa.galleryapp.activities.SettingsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/settings"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SETTING" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.mihisa.galleryapp.activities.SecurityActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:label="@string/security">
+            <intent-filter>
+                <action android:name="android.intent.action.SECURITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--
+        <activity
+            android:name="com.mihisa.galleryapp.about.AboutActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/about"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.ABOUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mihisa.galleryapp.activities.DonateActivity"
+            android:label="@string/donate"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.DONATE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity> -->
+
+        <activity
+            android:name="com.mihisa.galleryapp.activities.BlackWhiteListActivity"
+            android:label="@string/chose_folders"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.ExcludedAlbums" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mihisa.galleryapp.activities.PaletteActivity"
+            android:label="@string/palette"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.PALETTE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <!-- <meta-data
+            android:name="org.horaapps.leafpic.CustomGlideModule"
+            android:value="GlideModule" /> -->
+
+        <provider
+            android:name=".util.LegacyCompatFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <service
+            android:name=".LookForMediaJob"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

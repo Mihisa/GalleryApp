@@ -54,7 +54,6 @@ import static com.mihisa.galleryapp.util.ServerConstants.LEAFPIC_CHANGELOG;
 /**
  * Created by insight on 06.04.18.
  */
-//TODO
 public class AlertDialogsHelper {
     public static AlertDialog getInsertTextDialog(ThemedActivity activity, EditText editText, @StringRes int title) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(activity, activity.getDialogStyle());

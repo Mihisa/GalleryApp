@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.util.preferenses;
+package com.mihisa.galleryapp.util.preferences;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

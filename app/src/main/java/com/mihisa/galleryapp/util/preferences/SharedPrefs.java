@@ -1,14 +1,8 @@
-package com.mihisa.galleryapp.util.preferenses;
+package com.mihisa.galleryapp.util.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Parcel;
 import android.support.annotation.NonNull;
-
-import com.drew.lang.annotations.NotNull;
-
-import java.lang.ref.PhantomReference;
-
 
 
 /**

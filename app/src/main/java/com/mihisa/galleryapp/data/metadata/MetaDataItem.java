@@ -23,7 +23,6 @@ import java.util.TimeZone;
 /**
  * Created by insight on 07.04.18.
  */
-//TODO
 public class MetaDataItem {
     private static final int ORIENTATION_NORMAL = 1;
     private static final int ORIENTATION_ROTATE_180 = 3;

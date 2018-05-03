@@ -14,7 +14,7 @@ import com.mihisa.galleryapp.R;
 import com.mihisa.galleryapp.activities.SplashScreen;
 import com.mihisa.galleryapp.data.sort.SortingMode;
 import com.mihisa.galleryapp.data.sort.SortingOrder;
-import com.mihisa.galleryapp.util.preferenses.Prefs;
+import com.mihisa.galleryapp.util.preferences.Prefs;
 import com.orhanobut.hawk.Hawk;
 
 import java.io.File;

@@ -18,7 +18,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -36,7 +35,7 @@ import com.mihisa.galleryapp.util.AlertDialogsHelper;
 import com.mihisa.galleryapp.util.AnimationUtils;
 import com.mihisa.galleryapp.util.Measure;
 import com.mihisa.galleryapp.util.Security;
-import com.mihisa.galleryapp.util.preferenses.Prefs;
+import com.mihisa.galleryapp.util.preferences.Prefs;
 import com.mihisa.galleryapp.views.GridSpacingItemDecoration;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.orhanobut.hawk.Hawk;
@@ -275,7 +274,7 @@ public class AlbumsFragment extends BaseFragment {
                     selectedAlbum.removeCoverAlbum();
                     db().setCover(selectedAlbum.getPath(), null);
                     adapter.clearSelected();
-                    adapter.notifyItemChanaged(selectedAlbum);
+                    adapter.notifyItemChanged(selectedAlbum);
                     return true;
                 }
 

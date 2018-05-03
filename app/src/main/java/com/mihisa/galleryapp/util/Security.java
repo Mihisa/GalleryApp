@@ -66,7 +66,7 @@ public class Security {
         return Hawk.delete("password_hash");
     }
 
-    public static void autentificateUser(final ThemedActivity activity, AuthCallBack passwordInterface) {
+    public static void authenticateUser(final ThemedActivity activity, AuthCallBack passwordInterface) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, activity.getDialogStyle());
         CancellationSignal mCancellationSignal = new CancellationSignal();
 

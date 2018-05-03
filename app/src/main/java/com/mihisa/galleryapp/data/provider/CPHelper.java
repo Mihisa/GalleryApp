@@ -1,6 +1,5 @@
 package com.mihisa.galleryapp.data.provider;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.provider.MediaStore;
 
@@ -11,7 +10,7 @@ import com.mihisa.galleryapp.data.filter.FoldersFileFilter;
 import com.mihisa.galleryapp.data.filter.ImageFileFilter;
 import com.mihisa.galleryapp.data.sort.SortingMode;
 import com.mihisa.galleryapp.data.sort.SortingOrder;
-import com.mihisa.galleryapp.util.preferenses.Prefs;
+import com.mihisa.galleryapp.util.preferences.Prefs;
 import com.orhanobut.hawk.Hawk;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.mihisa.galleryapp.util.preferenses;
+package com.mihisa.galleryapp.util.preferences;
 
 import com.mihisa.galleryapp.CardViewStyle;
 import com.mihisa.galleryapp.data.sort.SortingMode;

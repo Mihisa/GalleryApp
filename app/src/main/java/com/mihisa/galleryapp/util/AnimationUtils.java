@@ -4,7 +4,7 @@ package com.mihisa.galleryapp.util;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 
-import com.mihisa.galleryapp.util.preferenses.Prefs;
+import com.mihisa.galleryapp.util.preferences.Prefs;
 
 /**
  * Created by insight on 02.04.18.

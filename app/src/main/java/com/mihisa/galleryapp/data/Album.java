@@ -211,6 +211,10 @@ public class Album implements CursorHandler, Parcelable {
         return settings.pinned;
     }
 
+    public void sortPhotos() {
+        /*Collections.sort(media, MediaComparators.getComparator(settings.getSortingMode(), settings.getSortingOrder()));*/
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Album) {

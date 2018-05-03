@@ -14,7 +14,6 @@ import org.horaapps.liz.ThemeHelper;
 /**
  * Created by insight on 07.04.18.
  */
-//TODO
 public class ChromeCustomTabs {
     private CustomTabsServiceConnection serviceConnection;
     private CustomTabsIntent mCustomTabsIntent;

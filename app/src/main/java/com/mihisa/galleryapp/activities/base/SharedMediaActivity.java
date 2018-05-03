@@ -1,6 +1,6 @@
 package com.mihisa.galleryapp.activities.base;
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.mihisa.galleryapp.R;
 import com.mihisa.galleryapp.data.StorageHelper;
-import com.mihisa.galleryapp.util.AlertDialogHelper;
+import com.mihisa.galleryapp.util.AlertDialogsHelper;
 
 import org.horaapps.liz.ThemedActivity;
 
@@ -23,7 +23,7 @@ public class SharedMediaActivity extends ThemedActivity {
 
     public void requestSdCardPermissions() {
 
-        AlertDialog textDialog = AlertDialogHelper.getTextDialog(this, R.string.sd_card_write_permission_title, R.string.sd_card_permissions_message);
+        AlertDialog textDialog = AlertDialogsHelper.getTextDialog(this, R.string.sd_card_write_permission_title, R.string.sd_card_permissions_message);
         textDialog.setButton(DialogInterface.BUTTON_POSITIVE, getString(R.string.ok_action).toUpperCase(), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {

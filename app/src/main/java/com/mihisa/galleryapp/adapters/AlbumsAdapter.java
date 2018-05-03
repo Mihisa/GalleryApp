@@ -25,7 +25,7 @@ import com.mihisa.galleryapp.data.sort.SortingMode;
 import com.mihisa.galleryapp.data.sort.SortingOrder;
 import com.mihisa.galleryapp.items.ActionsListener;
 import com.mihisa.galleryapp.util.StringUtils;
-import com.mihisa.galleryapp.util.preferenses.Prefs;
+import com.mihisa.galleryapp.util.preferences.Prefs;
 
 import org.horaapps.liz.ColorPalette;
 import org.horaapps.liz.Theme;
