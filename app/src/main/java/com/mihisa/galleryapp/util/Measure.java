@@ -8,8 +8,6 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.google.android.exoplayer2.util.ParsableNalUnitBitArray;
-
 /**
  * Created by insight on 02.04.18.
  */

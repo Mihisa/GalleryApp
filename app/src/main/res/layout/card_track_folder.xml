@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:foreground="@drawable/ripple"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
 
     <org.horaapps.liz.ui.ThemedIcon
         android:id="@+id/folder_icon"

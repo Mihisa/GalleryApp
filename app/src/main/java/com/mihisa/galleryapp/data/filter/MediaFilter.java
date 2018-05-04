@@ -1,7 +1,7 @@
 package com.mihisa.galleryapp.data.filter;
 
-/**
- * Created by insight on 02.04.18.
+/*
+  Created by insight on 02.04.18.
  */
 
 import com.mihisa.galleryapp.data.Media;

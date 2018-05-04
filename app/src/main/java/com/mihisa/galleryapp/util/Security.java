@@ -1,6 +1,5 @@
 package com.mihisa.galleryapp.util;
 
-import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.CancellationSignal;

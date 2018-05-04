@@ -170,16 +170,14 @@ public class AlertDialogsHelper {
                     .load(staticMapProvider.getUrl(location))
                     .into(imgMap);
 
-            imgMap.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    try {
-                        activity.startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse(String.format(Locale.ENGLISH, "geo:%f,%f?z=%d", location.getLatitude(), location.getLongitude(), 17))));
-                    } catch (ActivityNotFoundException e) {
-                        Toast.makeText(activity, R.string.no_app_to_perform, Toast.LENGTH_SHORT).show();
-                    }
-
+            imgMap.setOnClickListener(v -> {
+                try {
+                    activity.startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse(String.format(Locale.ENGLISH, "geo:%f,%f?z=%d", location.getLatitude(), location.getLongitude(), 17))));
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(activity, R.string.no_app_to_perform, Toast.LENGTH_SHORT).show();
                 }
+
             });
 
             imgMap.setVisibility(View.VISIBLE);
@@ -188,12 +186,9 @@ public class AlertDialogsHelper {
         } else imgMap.setVisibility(View.GONE);
 
         final TextView showMoreText = dialogLayout.findViewById(R.id.details_showmore);
-        showMoreText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showMoreDetails(dialogLayout, activity, f);
-                showMoreText.setVisibility(View.GONE);
-            }
+        showMoreText.setOnClickListener(view -> {
+            showMoreDetails(dialogLayout, activity, f);
+            showMoreText.setVisibility(View.GONE);
         });
 
         detailsDialogBuilder.setView(dialogLayout);
@@ -266,12 +261,7 @@ public class AlertDialogsHelper {
 
         changelogDialogBuilder.setView(dialogLayout);
         changelogDialogBuilder.setPositiveButton(activity.getString(R.string.ok_action).toUpperCase(), null);
-        changelogDialogBuilder.setNeutralButton(activity.getString(R.string.show_full).toUpperCase(), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                ChromeCustomTabs.launchUrl(activity, LEAFPIC_CHANGELOG);
-            }
-        });
+        changelogDialogBuilder.setNeutralButton(activity.getString(R.string.show_full).toUpperCase(), (dialog, which) -> ChromeCustomTabs.launchUrl(activity, LEAFPIC_CHANGELOG));
         return changelogDialogBuilder.show();
     }
 

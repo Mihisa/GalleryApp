@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/card_spacing"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="@drawable/ripple"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardElevation="@dimen/card_elevation" >
@@ -102,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/card_spacing"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="@drawable/ripple"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardElevation="@dimen/card_elevation">
@@ -211,6 +213,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/card_spacing"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="@drawable/ripple"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardElevation="@dimen/card_elevation">
@@ -281,6 +284,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/card_spacing"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="@drawable/ripple"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardElevation="@dimen/card_elevation">
@@ -328,6 +332,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/card_spacing"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="@drawable/ripple"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardElevation="@dimen/card_elevation">

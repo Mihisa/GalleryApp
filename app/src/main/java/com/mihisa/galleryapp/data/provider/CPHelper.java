@@ -75,7 +75,7 @@ public class CPHelper {
         return QueryUtils.query(query.build(), context.getContentResolver(), Album::new);
     }
 
-    private static io.reactivex.Observable<Album> getHiddenAlbums(Context context, ArrayList<String> excludedAlbums) {
+    private static Observable<Album> getHiddenAlbums(Context context, ArrayList<String> excludedAlbums) {
 
         boolean includeVideo = Prefs.showVideos();
         return io.reactivex.Observable.create(subscriber -> {
@@ -158,7 +158,7 @@ public class CPHelper {
         else return getMediaFromMediaStore(context, album, sortingMode, sortingOrder);
     }
 
-    private static io.reactivex.Observable<Media> getAllMediaFromMediaStore(Context context, SortingMode sortingMode, SortingOrder sortingOrder) {
+    private static Observable<Media> getAllMediaFromMediaStore(Context context, SortingMode sortingMode, SortingOrder sortingOrder) {
         Query.Builder query = new Query.Builder()
                 .uri(MediaStore.Files.getContentUri("external"))
                 .projection(Media.getProjection())
@@ -181,7 +181,7 @@ public class CPHelper {
         return QueryUtils.query(query.build(), context.getContentResolver(), new Media());
     }
 
-    private static io.reactivex.Observable<Media> getMediaFromStorage(Context context, Album album) {
+    private static Observable<Media> getMediaFromStorage(Context context, Album album) {
 
         return io.reactivex.Observable.create(subscriber -> {
             File dir = new File(album.getPath());
@@ -198,7 +198,7 @@ public class CPHelper {
 
     }
 
-    private static io.reactivex.Observable<Media> getMediaFromMediaStore(Context context, Album album, SortingMode sortingMode, SortingOrder sortingOrder) {
+    private static Observable<Media> getMediaFromMediaStore(Context context, Album album, SortingMode sortingMode, SortingOrder sortingOrder) {
 
         Query.Builder query = new Query.Builder()
                 .uri(MediaStore.Files.getContentUri("external"))

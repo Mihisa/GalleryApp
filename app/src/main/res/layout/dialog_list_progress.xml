@@ -1,5 +1,6 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="2dp"
@@ -49,7 +50,8 @@
                         android:layout_gravity="center_vertical"
                         android:paddingRight="@dimen/sub_medium_spacing"
                         android:paddingLeft="@dimen/sub_medium_spacing"
-                        android:indeterminateTint="@color/md_white_1000" />
+                        android:indeterminateTint="@color/md_white_1000"
+                        tools:targetApi="lollipop" />
 
                     <TextView
                         android:id="@+id/name_folder"

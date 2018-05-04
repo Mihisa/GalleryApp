@@ -1,7 +1,6 @@
 package com.mihisa.galleryapp.activities;
 
 import android.media.MediaScannerConnection;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.v7.widget.CardView;

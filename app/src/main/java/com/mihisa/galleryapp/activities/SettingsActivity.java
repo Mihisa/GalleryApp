@@ -1,6 +1,5 @@
 package com.mihisa.galleryapp.activities;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -35,6 +34,7 @@ import butterknife.Unbinder;
 
 //todo
 public class SettingsActivity extends ThemedActivity {
+
     private Toolbar toolbar;
 
     @BindView(R.id.option_max_brightness) SettingWithSwitchView optionMaxBrightness;

@@ -7,6 +7,7 @@
     android:foreground="@drawable/ripple"
     android:orientation="horizontal"
     android:clickable="true"
+    android:focusable="true"
     android:gravity="center_vertical"
     android:background="@drawable/ripple"
     android:paddingTop="@dimen/small_spacing"

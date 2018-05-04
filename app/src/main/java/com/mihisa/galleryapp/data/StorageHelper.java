@@ -269,7 +269,7 @@ public class StorageHelper {
     }
 
     public static HashSet<File> getStorageRoots(Context context) {
-        HashSet<File> paths = new HashSet<File>();
+        HashSet<File> paths = new HashSet<>();
         for (File file : context.getExternalFilesDirs("external")) {
             if (file != null) {
                 int index = file.getAbsolutePath().lastIndexOf("/Android/data");

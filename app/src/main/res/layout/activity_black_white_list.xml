@@ -38,7 +38,7 @@
                     android:foreground="@drawable/ripple"
                     android:clickable="true"
                     android:visibility="gone"
-                    >
+                    android:focusable="true">
                     <TextView
                         android:id="@+id/white_list_decription_txt"
                         android:layout_width="wrap_content"

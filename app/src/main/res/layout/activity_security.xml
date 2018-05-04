@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/ripple"
-                android:clickable="true">
+                android:clickable="true"
+                android:focusable="true">
 
                 <org.horaapps.liz.ui.ThemedIcon
                     android:id="@+id/active_security_icon"
@@ -140,7 +141,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@drawable/ripple"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <org.horaapps.liz.ui.ThemedIcon
                         android:id="@+id/security_body_apply_hidden_icon"
@@ -186,7 +188,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@drawable/ripple"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <org.horaapps.liz.ui.ThemedIcon
                         android:id="@+id/security_body_apply_delete_icon"

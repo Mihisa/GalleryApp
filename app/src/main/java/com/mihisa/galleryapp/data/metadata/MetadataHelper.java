@@ -50,7 +50,7 @@ public class MetadataHelper {
         return details;
     }
     public MediaDetailsMap<String, String> getAllDetails(Context context, Media media) {
-        MediaDetailsMap<String, String> data = new MediaDetailsMap<String, String>();
+        MediaDetailsMap<String, String> data = new MediaDetailsMap<>();
         try {
             Metadata metadata = ImageMetadataReader.readMetadata(context.getContentResolver().openInputStream(media.getUri()));
             for(Directory directory : metadata.getDirectories()) {

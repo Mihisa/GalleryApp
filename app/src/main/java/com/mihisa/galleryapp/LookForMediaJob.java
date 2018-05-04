@@ -36,22 +36,19 @@ public class LookForMediaJob extends JobService{
     @Override
     public boolean onStartJob(final JobParameters jobParameters) {
         Log.wtf(TAG, "JOB started");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    ArrayList<String> whiteList = HandlingAlbums.getInstance(getApplicationContext()).getFolders(HandlingAlbums.INCLUDED);
-                    for(String s : whiteList) {
-                        scanFolders(s);
-                        Log.wtf(TAG, "Scanned: " + s);
-                    }
-                    if(DEBUG) {
-                        notification(whiteList);
-                    }
+        new Thread(() -> {
+            try {
+                ArrayList<String> whiteList = HandlingAlbums.getInstance(getApplicationContext()).getFolders(HandlingAlbums.INCLUDED);
+                for(String s : whiteList) {
+                    scanFolders(s);
+                    Log.wtf(TAG, "Scanned: " + s);
                 }
-                finally {
-                    jobFinished(jobParameters, false);
+                if(DEBUG) {
+                    notification(whiteList);
                 }
+            }
+            finally {
+                jobFinished(jobParameters, false);
             }
         }).start();
 

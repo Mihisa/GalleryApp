@@ -7,7 +7,8 @@
     android:background="@color/md_red_500"
     android:padding="@dimen/big_spacing"
     android:foreground="@drawable/ripple"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
     <TextView
         android:id="@+id/palette_item_text"
         android:layout_width="match_parent"

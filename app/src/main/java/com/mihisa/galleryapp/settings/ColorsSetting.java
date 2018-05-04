@@ -80,20 +80,14 @@ public class ColorsSetting extends ThemedSetting {
         dialogTitle.setText(title);
         ((CardView) dialogLayout.findViewById(R.id.dialog_card)).setCardBackgroundColor(getActivity().getCardBackgroundColor());
 
-        colorPicker2.setOnColorChangedListener(new OnColorChangedListener() {
-            @Override
-            public void onColorChanged(int c) {
-                dialogTitle.setBackgroundColor(c);
-                chooser.onColorChanged(c);
-            }
+        colorPicker2.setOnColorChangedListener(c -> {
+            dialogTitle.setBackgroundColor(c);
+            chooser.onColorChanged(c);
         });
 
-        colorPicker.setOnColorChangedListener(new OnColorChangedListener() {
-            @Override
-            public void onColorChanged(int c) {
-                colorPicker2.setColors(ColorPalette.getColors(getActivity(), colorPicker.getColor()));
-                colorPicker2.setSelectedColor(colorPicker.getColor());
-            }
+        colorPicker.setOnColorChangedListener(c -> {
+            colorPicker2.setColors(ColorPalette.getColors(getActivity(), colorPicker.getColor()));
+            colorPicker2.setSelectedColor(colorPicker.getColor());
         });
 
         int[] baseColors = ColorPalette.getBaseColors(getActivity());
@@ -111,29 +105,19 @@ public class ColorsSetting extends ThemedSetting {
 
         dialogBuilder.setView(dialogLayout);
 
-        dialogBuilder.setNegativeButton(getActivity().getString(R.string.cancel).toUpperCase(), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-                chooser.onDialogDismiss();
-            }
+        dialogBuilder.setNegativeButton(getActivity().getString(R.string.cancel).toUpperCase(), (dialog, which) -> {
+            dialog.cancel();
+            chooser.onDialogDismiss();
         });
 
-        dialogBuilder.setPositiveButton(getActivity().getString(R.string.ok_action).toUpperCase(), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                AlertDialog alertDialog = (AlertDialog) dialog;
-                alertDialog.setOnDismissListener(null);
-                chooser.onColorSelected(colorPicker2.getColor());
+        dialogBuilder.setPositiveButton(getActivity().getString(R.string.ok_action).toUpperCase(), (dialog, which) -> {
+            AlertDialog alertDialog = (AlertDialog) dialog;
+            alertDialog.setOnDismissListener(null);
+            chooser.onColorSelected(colorPicker2.getColor());
 
-            }
         });
 
-        dialogBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                chooser.onDialogDismiss();
-            }
-        });
+        dialogBuilder.setOnDismissListener(dialog -> chooser.onDialogDismiss());
         dialogBuilder.show();
     }
 }

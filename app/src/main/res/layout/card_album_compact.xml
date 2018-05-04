@@ -92,11 +92,11 @@
                     android:textColor="@color/md_grey_400"
                     android:ellipsize="marquee"
                     android:marqueeRepeatLimit ="marquee_forever"
-                    android:maxLines="1"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:scrollHorizontally="true"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    android:singleLine="true" />
             </LinearLayout>
         </com.mihisa.galleryapp.views.SquareRelativeLayout>
     </LinearLayout>

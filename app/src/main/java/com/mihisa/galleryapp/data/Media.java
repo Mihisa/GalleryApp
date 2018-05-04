@@ -156,25 +156,22 @@ public class Media implements CursorHandler, Parcelable {
     @Deprecated
     public boolean setOrientation(final int orientation) {
         this.orientation = orientation;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int exifOrientation = -1;
-                try {
-                    ExifInterface exif = new ExifInterface(path);
-                    switch (orientation) {
-                        case 90: exifOrientation = ExifInterface.ORIENTATION_ROTATE_90; break;
-                        case 180: exifOrientation = ExifInterface.ORIENTATION_ROTATE_180; break;
-                        case 270: exifOrientation = ExifInterface.ORIENTATION_ROTATE_270; break;
-                        case 0: exifOrientation = ExifInterface.ORIENTATION_NORMAL; break;
-                    }
-                    if(exifOrientation != -1) {
-                        exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(exifOrientation));
-                        exif.saveAttributes();
-                    }
+        new Thread(() -> {
+            int exifOrientation = -1;
+            try {
+                ExifInterface exif = new ExifInterface(path);
+                switch (orientation) {
+                    case 90: exifOrientation = ExifInterface.ORIENTATION_ROTATE_90; break;
+                    case 180: exifOrientation = ExifInterface.ORIENTATION_ROTATE_180; break;
+                    case 270: exifOrientation = ExifInterface.ORIENTATION_ROTATE_270; break;
+                    case 0: exifOrientation = ExifInterface.ORIENTATION_NORMAL; break;
                 }
-                catch (IOException ignored) { }
+                if(exifOrientation != -1) {
+                    exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(exifOrientation));
+                    exif.saveAttributes();
+                }
             }
+            catch (IOException ignored) { }
         }).start();
         return true;
     }

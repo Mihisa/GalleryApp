@@ -441,9 +441,7 @@ public class RvMediaFragment extends BaseFragment {
 
                 android.support.v7.app.AlertDialog alertDialog = AlertDialogsHelper.getProgressDialogWithErrors(((ThemedActivity) getActivity()), R.string.deleting_images, errorsAdapter, selected.size());
 
-                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, this.getString(R.string.cancel).toUpperCase(), (dialog, id) -> {
-                    alertDialog.dismiss();
-                });
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, this.getString(R.string.cancel).toUpperCase(), (dialog, id) -> alertDialog.dismiss());
                 alertDialog.show();
 
                 MediaHelper.deleteMedia(getContext(), selected)
@@ -480,7 +478,7 @@ public class RvMediaFragment extends BaseFragment {
 
                     @Override
                     protected Void doInBackground(Affix.Options... arg0) {
-                        ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
+                        ArrayList<Bitmap> bitmapArray = new ArrayList<>();
                         for (int i = 0; i < adapter.getSelectedCount(); i++) {
                             if(!adapter.getSelected().get(i).isVideo())
                                 bitmapArray.add(adapter.getSelected().get(i).getBitmap());
@@ -488,12 +486,7 @@ public class RvMediaFragment extends BaseFragment {
 
                         if (bitmapArray.size() > 1)
                             Affix.AffixBitmapList(getActivity(), bitmapArray, arg0[0]);
-                        else getActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(getContext(), R.string.affix_error, Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        else getActivity().runOnUiThread(() -> Toast.makeText(getContext(), R.string.affix_error, Toast.LENGTH_SHORT).show());
                         return null;
                     }
 
@@ -601,49 +594,41 @@ public class RvMediaFragment extends BaseFragment {
                 seekQuality.setProgress(50);
 
                 swVertical.setClickable(false);
-                llSwVertical.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        swVertical.setChecked(!swVertical.isChecked());
-                        getThemeHelper().setSwitchCompactColor(swVertical, getAccentColor());
-                        llExampleH.setVisibility(swVertical.isChecked() ? View.GONE : View.VISIBLE);
-                        llExampleV.setVisibility(swVertical.isChecked() ? View.VISIBLE : View.GONE);
-                    }
+                llSwVertical.setOnClickListener(v -> {
+                    swVertical.setChecked(!swVertical.isChecked());
+                    getThemeHelper().setSwitchCompactColor(swVertical, getAccentColor());
+                    llExampleH.setVisibility(swVertical.isChecked() ? View.GONE : View.VISIBLE);
+                    llExampleV.setVisibility(swVertical.isChecked() ? View.VISIBLE : View.GONE);
                 });
 
                 swSaveHere.setClickable(false);
-                llSwSaveHere.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        swSaveHere.setChecked(!swSaveHere.isChecked());
-                        getThemeHelper().setSwitchCompactColor(swSaveHere, getAccentColor());
-                    }
+                llSwSaveHere.setOnClickListener(v -> {
+                    swSaveHere.setChecked(!swSaveHere.isChecked());
+                    getThemeHelper().setSwitchCompactColor(swSaveHere, getAccentColor());
                 });
 
                 builder.setView(dialogLayout);
-                builder.setPositiveButton(this.getString(R.string.ok_action).toUpperCase(), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Bitmap.CompressFormat compressFormat;
-                        switch (radioFormatGroup.getCheckedRadioButtonId()) {
-                            case R.id.radio_jpeg:
-                            default:
-                                compressFormat = Bitmap.CompressFormat.JPEG;
-                                break;
-                            case R.id.radio_png:
-                                compressFormat = Bitmap.CompressFormat.PNG;
-                                break;
-                            case R.id.radio_webp:
-                                compressFormat = Bitmap.CompressFormat.WEBP;
-                                break;
-                        }
-
-                        Affix.Options options = new Affix.Options(
-                                swSaveHere.isChecked() ? adapter.getFirstSelected().getPath() : Affix.getDefaultDirectoryPath(),
-                                compressFormat,
-                                seekQuality.getProgress(),
-                                swVertical.isChecked());
-                        new affixMedia().execute(options);
+                builder.setPositiveButton(this.getString(R.string.ok_action).toUpperCase(), (dialog, id) -> {
+                    Bitmap.CompressFormat compressFormat;
+                    switch (radioFormatGroup.getCheckedRadioButtonId()) {
+                        case R.id.radio_jpeg:
+                        default:
+                            compressFormat = Bitmap.CompressFormat.JPEG;
+                            break;
+                        case R.id.radio_png:
+                            compressFormat = Bitmap.CompressFormat.PNG;
+                            break;
+                        case R.id.radio_webp:
+                            compressFormat = Bitmap.CompressFormat.WEBP;
+                            break;
                     }
+
+                    Affix.Options options = new Affix.Options(
+                            swSaveHere.isChecked() ? adapter.getFirstSelected().getPath() : Affix.getDefaultDirectoryPath(),
+                            compressFormat,
+                            seekQuality.getProgress(),
+                            swVertical.isChecked());
+                    new affixMedia().execute(options);
                 });
                 builder.setNegativeButton(this.getString(R.string.cancel).toUpperCase(), null);
                 builder.show();

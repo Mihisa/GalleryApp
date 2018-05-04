@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.provider.Settings;
-import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -176,9 +175,7 @@ public class SingleMediaActivity extends SharedMediaActivity implements BaseMedi
                             if (i < 0) i = ~i;
                             list.add(i, ma);
                         },
-                        throwable -> {
-                            Log.wtf("asd", throwable);
-                        },
+                        throwable -> Log.wtf("asd", throwable),
                         () -> {
                             int i = Collections.binarySearch(
                                     list, m, MediaComparators.getComparator(album.settings));
@@ -738,12 +735,7 @@ public class SingleMediaActivity extends SharedMediaActivity implements BaseMedi
             toolbar.animate().translationY(-toolbar.getHeight()).setInterpolator(new AccelerateInterpolator())
                     .setDuration(200).start();
 
-            getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility) {
-                    Log.wtf(TAG, "ui changed: " + visibility);
-                }
-            });
+            getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(visibility -> Log.wtf(TAG, "ui changed: " + visibility));
             getWindow().getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -793,12 +785,7 @@ public class SingleMediaActivity extends SharedMediaActivity implements BaseMedi
         }
         ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
         colorAnimation.setDuration(240);
-        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animator) {
-                activityBackground.setBackgroundColor((Integer) animator.getAnimatedValue());
-            }
-        });
+        colorAnimation.addUpdateListener(animator -> activityBackground.setBackgroundColor((Integer) animator.getAnimatedValue()));
         colorAnimation.start();
     }
 

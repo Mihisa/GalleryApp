@@ -63,12 +63,7 @@ public class PaletteActivity extends ThemedActivity{
 
         toolbar.setBackgroundColor(getPrimaryColor());
         toolbar.setNavigationIcon(getToolbarIcon(GoogleMaterial.Icon.gmd_arrow_back));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         setStatusBarColor();
         setNavBarColor();
@@ -128,15 +123,12 @@ public class PaletteActivity extends ThemedActivity{
         }
     }
 
-    private View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            String text = ((TextView) view.findViewById(R.id.palette_item_text)).getText().toString();
-            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("Palette Color", text);
-            clipboard.setPrimaryClip(clip);
-            StringUtils.showToast(getApplicationContext(), getString(R.string.color) + ": " + text + " " + getString(R.string.copy_clipboard));
-        }
+    private View.OnClickListener onClickListener = view -> {
+        String text = ((TextView) view.findViewById(R.id.palette_item_text)).getText().toString();
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Palette Color", text);
+        clipboard.setPrimaryClip(clip);
+        StringUtils.showToast(getApplicationContext(), getString(R.string.color) + ": " + text + " " + getString(R.string.copy_clipboard));
     };
 
 }

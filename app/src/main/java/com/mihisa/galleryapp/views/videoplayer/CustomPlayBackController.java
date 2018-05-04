@@ -256,8 +256,8 @@ public class CustomPlayBackController extends FrameLayout {
                     || player.getPreviousWindowIndex() != C.INDEX_UNSET;
             enableNext = window.isDynamic || player.getNextWindowIndex() != C.INDEX_UNSET;
         }
-        setButtonEnabled(enablePrevious && false, previousButton, true);
-        setButtonEnabled(enableNext && false, nextButton, true);
+        setButtonEnabled(false, previousButton, true);
+        setButtonEnabled(false, nextButton, true);
 
         setButtonEnabled(fastForwardMs > 0 && isSeekable, fastForwardButton, false);
         setButtonEnabled(rewindMs > 0 && isSeekable, rewindButton, false);

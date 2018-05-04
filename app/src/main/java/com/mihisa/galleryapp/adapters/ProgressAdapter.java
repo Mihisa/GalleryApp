@@ -16,8 +16,6 @@ import org.horaapps.liz.ThemeHelper;
 import org.horaapps.liz.ThemedViewHolder;
 import org.horaapps.liz.ui.ThemedIcon;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

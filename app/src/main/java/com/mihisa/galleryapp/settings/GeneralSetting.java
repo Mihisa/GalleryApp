@@ -108,18 +108,15 @@ public class GeneralSetting extends ThemedSetting {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        multiColumnDialogBuilder.setPositiveButton(getActivity().getString(R.string.ok_action).toUpperCase(), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                int nFolders = Integer.parseInt(nColFolders.getText().toString());
-                int nMedia = Integer.parseInt(nColMedia.getText().toString());
-                int nFoldersL = Integer.parseInt(nColFoldersL.getText().toString());
-                int nMediaL = Integer.parseInt(nColMediaL.getText().toString());
-                Prefs.setFolderColumnsPortrait(nFolders);
-                Prefs.setMediaColumnsPortrait(nMedia);
-                Prefs.setFolderColumnsLandscape(nFoldersL);
-                Prefs.setMediaColumnsLandscape(nMediaL);
-            }
+        multiColumnDialogBuilder.setPositiveButton(getActivity().getString(R.string.ok_action).toUpperCase(), (dialogInterface, i) -> {
+            int nFolders = Integer.parseInt(nColFolders.getText().toString());
+            int nMedia = Integer.parseInt(nColMedia.getText().toString());
+            int nFoldersL = Integer.parseInt(nColFoldersL.getText().toString());
+            int nMediaL = Integer.parseInt(nColMediaL.getText().toString());
+            Prefs.setFolderColumnsPortrait(nFolders);
+            Prefs.setMediaColumnsPortrait(nMedia);
+            Prefs.setFolderColumnsLandscape(nFoldersL);
+            Prefs.setMediaColumnsLandscape(nMediaL);
         });
         multiColumnDialogBuilder.setNegativeButton(getActivity().getString(R.string.cancel).toUpperCase(), null);
         multiColumnDialogBuilder.setView(dialogLayout);

@@ -1,7 +1,6 @@
 package com.mihisa.galleryapp.adapters;
 
 import android.content.Context;
-import android.view.ViewGroup;
 
 import org.horaapps.liz.ThemeHelper;
 import org.horaapps.liz.Themed;

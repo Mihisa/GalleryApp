@@ -40,7 +40,8 @@
                     android:padding="@dimen/sub_medium_spacing_2"
                     android:background="@color/md_light_background"
                     android:foreground="@drawable/ripple"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:focusable="true">
 
                     <org.horaapps.liz.ui.ThemedIcon
                         android:id="@+id/white_basic_theme_icon"
@@ -79,6 +80,7 @@
                     android:background="@color/md_dark_background"
                     android:foreground="@drawable/ripple"
                     android:clickable="true"
+                    android:focusable="true"
                     >
 
                     <org.horaapps.liz.ui.ThemedIcon
@@ -119,6 +121,7 @@
                     android:background="@color/md_black_1000"
                     android:foreground="@drawable/ripple"
                     android:clickable="true"
+                    android:focusable="true"
                     >
 
                     <org.horaapps.liz.ui.ThemedIcon

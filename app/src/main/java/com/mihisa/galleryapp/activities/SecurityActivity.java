@@ -153,19 +153,16 @@ public class SecurityActivity extends ThemedActivity {
             Security.clearPassword();
         });
 
-        dialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.ok_action).toUpperCase(), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (editTextPassword.length() > 3) {
-                    if (editTextPassword.getText().toString().equals(editTextConfirmPassword.getText().toString())) {
-                        if (Security.setPassword(editTextPassword.getText().toString())) {
-                            swActiveSecurity.setChecked(true);
-                            toggleEnabledChild(true);
-                            Toast.makeText(getApplicationContext(), R.string.remember_password_message, Toast.LENGTH_SHORT).show();
-                        } else Toast.makeText(SecurityActivity.this, R.string.error_contact_developer, Toast.LENGTH_SHORT).show();
-                    } else Toast.makeText(getApplicationContext(), R.string.password_dont_match, Toast.LENGTH_SHORT).show();
-                } else Toast.makeText(getApplicationContext(), R.string.error_password_length, Toast.LENGTH_SHORT).show();
-            }
+        dialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.ok_action).toUpperCase(), (dialog12, which) -> {
+            if (editTextPassword.length() > 3) {
+                if (editTextPassword.getText().toString().equals(editTextConfirmPassword.getText().toString())) {
+                    if (Security.setPassword(editTextPassword.getText().toString())) {
+                        swActiveSecurity.setChecked(true);
+                        toggleEnabledChild(true);
+                        Toast.makeText(getApplicationContext(), R.string.remember_password_message, Toast.LENGTH_SHORT).show();
+                    } else Toast.makeText(SecurityActivity.this, R.string.error_contact_developer, Toast.LENGTH_SHORT).show();
+                } else Toast.makeText(getApplicationContext(), R.string.password_dont_match, Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(getApplicationContext(), R.string.error_password_length, Toast.LENGTH_SHORT).show();
         });
         dialog.show();
     }
